@@ -1,0 +1,10 @@
+/Users/ruchichopra/cloudlearnings/bin/Debug/netcoreapp2.0/cloudlearnings.deps.json
+/Users/ruchichopra/cloudlearnings/bin/Debug/netcoreapp2.0/cloudlearnings.runtimeconfig.json
+/Users/ruchichopra/cloudlearnings/bin/Debug/netcoreapp2.0/cloudlearnings.runtimeconfig.dev.json
+/Users/ruchichopra/cloudlearnings/bin/Debug/netcoreapp2.0/cloudlearnings.dll
+/Users/ruchichopra/cloudlearnings/bin/Debug/netcoreapp2.0/cloudlearnings.pdb
+/Users/ruchichopra/cloudlearnings/obj/Debug/netcoreapp2.0/cloudlearnings.csproj.CoreCompileInputs.cache
+/Users/ruchichopra/cloudlearnings/obj/Debug/netcoreapp2.0/cloudlearnings.AssemblyInfoInputs.cache
+/Users/ruchichopra/cloudlearnings/obj/Debug/netcoreapp2.0/cloudlearnings.AssemblyInfo.cs
+/Users/ruchichopra/cloudlearnings/obj/Debug/netcoreapp2.0/cloudlearnings.dll
+/Users/ruchichopra/cloudlearnings/obj/Debug/netcoreapp2.0/cloudlearnings.pdb
