@@ -1,5 +1,7 @@
 parameters:
-buildConfiguration: 'Release'
+- name: buildConfiguration # name of the parameter; required
+  type: string # data type of the parameter; required
+  default: 'Release'
 
 - script: dotnet build --configuration ${{parameters.buildConfiguration}}
   displayName: 'dotnet build ${{parameters.buildConfiguration}}'
