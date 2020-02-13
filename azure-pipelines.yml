@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
+extends:
 - template: build.yml
   parameters:
     buildConfiguration: 'Debug'
