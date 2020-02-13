@@ -13,11 +13,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- template: templates/build.yml
+- template: build.yml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: templates/build.yml
+- template: build.yml
   parameters:
     buildConfiguration: 'Release'
 
