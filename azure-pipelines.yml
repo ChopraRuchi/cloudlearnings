@@ -12,12 +12,12 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-extends:
-- template: build.yml
+steps:
+- template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: build.yml
+- template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
 
