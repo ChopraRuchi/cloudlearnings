@@ -56,5 +56,5 @@ stages:
               azureSubscription: 'Free Trial(8dfda198-2640-4876-aa65-25ef40a829b1)'
               appType: 'webAppLinux'
               appName: 'LetsDance'
-              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              package: '$(System.DefaultWorkingDirectory)/drop/Release/*.zip'
               runtimeStack: 'DOTNETCORE|Latest'
