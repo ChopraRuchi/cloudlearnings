@@ -17,15 +17,44 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- template: build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs: 
+  - job: 'Build'
+    steps:
+    - template: build.yml
+      parameters:
+        buildConfiguration: 'Debug'
 
-- template: build.yml
-  parameters:
-    buildConfiguration: 'Release'
+    - template: build.yml
+      parameters:
+       buildConfiguration: 'Release'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  condition: succeeded()
+    - task: PublishBuildArtifacts@1 
+      displayName: 'Publish Artifact: drop'
+      condition: succeeded()
+
+- stage: 'Deploy'
+  displayName: 'Deploy the web application'
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    pool:
+      vmImage: 'ubuntu-16.04'
+    environment: dev
+    variables:
+    - group: Release
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureWebApp@1
+            inputs: 
+              azureSubscription: 'Free Trial(8dfda198-2640-4876-aa65-25ef40a829b1)'
+              appType: 'webAppLinux'
+              appName: 'LetsDance'
+              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+              runtimeStack: 'DOTNETCORE|2.0'
