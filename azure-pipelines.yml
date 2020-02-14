@@ -22,11 +22,10 @@ stages:
   displayName: 'Build the web application'
   jobs: 
   - job: 'Build'
-  
-  steps:
-  - template: build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+    steps:
+    - template: build.yml
+      parameters:
+        buildConfiguration: 'Debug'
 
 - template: build.yml
   parameters:
