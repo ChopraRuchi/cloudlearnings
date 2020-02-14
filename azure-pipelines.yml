@@ -34,3 +34,27 @@ stages:
     - task: PublishBuildArtifacts@1 
       displayName: 'Publish Artifact: drop'
       condition: succeeded()
+
+- stage: 'Deploy'
+  displayName: 'Deploy the web application'
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+  pool:
+    vmImage: 'ubuntu-16.04'
+    environment: dev
+    variables:
+    - group: Release
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureWebApp@1
+            inputs: 
+              azureSubscription: 'Free Trial(8dfda198-2640-4876-aa65-25ef40a829b1)'
+              appType: 'webAppLinux'
+              appName: 'LetsDance'
+              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              runtimeStack: 'DOTNETCORE|Latest'
