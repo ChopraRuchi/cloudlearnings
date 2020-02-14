@@ -17,8 +17,13 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- template: build.yml
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs: 
+  - job: 'Build'
+  steps:
+  - template: build.yml
   parameters:
     buildConfiguration: 'Debug'
 
