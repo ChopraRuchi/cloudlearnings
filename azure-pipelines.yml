@@ -57,4 +57,4 @@ stages:
               appType: 'webAppLinux'
               appName: 'LetsDance'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
-              runtimeStack: 'DOTNETCORE|Latest'
+              runtimeStack: 'DOTNETCORE|2.0'
