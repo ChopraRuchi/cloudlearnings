@@ -39,10 +39,7 @@ stages:
   displayName: 'Deploy to Dev Environment'
   dependsOn: Build
   condition: |
-    and
-    (
       succeeded()
-    )
   jobs:
   - deployment: Deploy
     pool:
