@@ -13,5 +13,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: '[EnterYourServiceConnectionName]'
+    subscriptionName: '[EnterTheTargetSubscriptionID]'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '[EnterANewResourceGroupName]'
+    location: 'Central US'
+    templateLocation: 'Linked artifact'
+    csmFile: 'Cloudlearnings/azuredeploy.json'
+    deploymentMode: 'Incremental'
